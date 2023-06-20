@@ -1,0 +1,157 @@
+a
+{
+  color: black;
+
+}
+
+*{
+
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    
+ }
+
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../image/holdinflower2.jpg);
+  background-position: center;
+  background-attachment: scroll;
+}
+
+body
+{ 
+  font: 14px sans-serif; 
+  text-align: center;
+}
+
+.wrapper
+{
+  width: 360px; padding: 20px;
+
+}
+
+
+.bar
+{
+  
+  align-items: center;
+  width: 100%;
+  height: 60;
+  text-align: center;
+  background-color: black;
+
+}
+
+.bar li 
+{
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  font-size: 15px;
+  padding: 20px;
+  cursor: pointer;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  position: relative;
+}
+
+.bar li a{
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.bar li:hover {
+  opacity:0.6;
+}
+
+.bar li::after {
+  content: '';
+  height: 2px;
+  width: 0;
+  background: rgb(255, 255, 255);
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  transition: 0.5s;
+}
+
+.bar li:hover::after {
+  width: 100%;
+}
+
+.mainpagetext {
+  width: 60%;
+  height: 30vh;
+  background-color: transparent;
+  
+}
+
+.logo {
+  position: absolute;
+}
+
+
+
+
+button[type="submit"] {
+  background-color: black;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 6%;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  opacity: .75;
+}
+
+
+
+input[type=text], input[type=password], input[type=file], input[type=number]
+{
+  width: 40%;
+  padding: 15px;
+  margin: 5px 10px 22px ;
+  display: inline-block;
+  border: none;
+  text-align: center;
+  background-color: rgb(211, 211, 211);
+}
+
+p.error {
+  font-weight: bold;
+}
+
+div.cart-items {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
