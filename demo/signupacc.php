@@ -15,6 +15,7 @@ include_once 'header.php';
           <br>
           <button type="submit" name="submit">Sign up</button>
         </form>
+        <br>
 
         <?php
         if (isset($_GET["error"])) {

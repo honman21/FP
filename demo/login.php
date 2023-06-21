@@ -16,7 +16,6 @@ include_once '../demo/header.php';
     </form>
     <br>
     <p>Inloggen als medewerker?<a href="../medewerker/login.php" style="color:dodgerblue"><br>Klik hier</a></p>
-    
     <br>
     <?php
     if (isset($_GET["error"])) {

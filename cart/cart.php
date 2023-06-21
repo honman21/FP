@@ -10,9 +10,9 @@ include_once '../demo/header.php';
     <thead>
           <tr>
             <th colspan="2">Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
+            <th>Naam</th>
+            <th>Beschrijving</th>
+            <th>Aantal</th>
           </tr>
     </thead>
     <form action="">
@@ -45,9 +45,18 @@ include_once '../demo/header.php';
                         while($assoc_naam = mysqli_fetch_assoc($select_artikelnaam)){
                   ?>
                     <td><?php echo $assoc_naam['naam'];?></td>
-                </tr>
 
-                <tr class="text-center">
+                  <?php
+                    }
+                  }
+                    $select_artikelomschrijving = mysqli_query($connect, "SELECT omschrijving FROM artikel WHERE idartikel = '$image'");
+                      if(mysqli_num_rows($select_artikelomschrijving) > 0){
+                      while($assoc_omschrijving = mysqli_fetch_assoc($select_artikelomschrijving)){
+                ?>
+                  <td><?php echo $assoc_omschrijving['omschrijving'];?></td>
+
+
+
                   <td> Product <?= $cart['idcart']; ?></td>
                   <td>
                     <form action="../includes/cart.inc/update.php" method="post">
