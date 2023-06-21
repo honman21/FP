@@ -62,7 +62,9 @@ include_once '../demo/header.php';
                     <a class="btn btn-sm btn-danger" href="../includes/cart.inc/removecartitem.php?idcart=<?= $cart['idcart']; ?>">Remove</a>
                   </td>
                 </tr>
-
+                <div class="checkout-btn">
+                    <a href="checkout.php" class="btn <?= ($intotaal > 1)?'':'disabled'; ?>">proceed to checkout</a>
+                  </div>
                 <?php                  
                   }
                 }
@@ -75,11 +77,7 @@ include_once '../demo/header.php';
                   <td>
                     <a class="delete_all" href="../includes/cart.inc/emptycart.php?" onclick="return confirm('remove item from cart?')">Delete all</a>
                   </td>
-                  <td>
-                  <div class="checkout-btn">
-                    <a href="checkout.php" class="btn <?= ($intotaal > 1)?'':'disabled'; ?>">proceed to checkout</a>
-                  </div>
-                  </td>
+                  
             </tr>
       </body>
     </form>

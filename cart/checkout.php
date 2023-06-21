@@ -26,7 +26,7 @@ include_once '../includes/function.inc.php';
 
    <h1 class="heading">complete your order</h1>
 
-   <form action="" method="post">
+   <form action="../includes/cart.inc/checkout.inc.php" method="post">
 
    <div class="display-order">
       <?php
