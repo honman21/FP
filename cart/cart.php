@@ -23,7 +23,7 @@ include_once '../demo/header.php';
           foreach ($_SESSION['cart'] as $cart) :
         ?>
 
-            <tr class="text-center">
+            <tr class="text">
               <td><?php echo $i; ?> </td>
 
                   <?php 
@@ -38,8 +38,8 @@ include_once '../demo/header.php';
                     <td><img src="../image/<?php echo $assoc_image['image'];?>" height="100"></td>
                   
                   <?php
-                  }
-                }
+                      }
+                    }
                       $select_artikelnaam = mysqli_query($connect, "SELECT naam FROM artikel WHERE idartikel = '$image'");
                         if(mysqli_num_rows($select_artikelnaam) > 0){
                         while($assoc_naam = mysqli_fetch_assoc($select_artikelnaam)){
@@ -50,21 +50,19 @@ include_once '../demo/header.php';
                 <tr class="text-center">
                   <td> Product <?= $cart['idcart']; ?></td>
                   <td>
-                      <form action="../includes/cart.inc/update.php" method="post">
-                        <input type="number" value="<?= $cart['aantal']; ?>" name="aantal" min="1">
-                        <input type="hidden" name="upid" value="<?= $cart['idcart']; ?>">
+                    <form action="../includes/cart.inc/update.php" method="post">
+                    <input type="number" value="<?= $cart['aantal']; ?>" name="aantal" min="1">
+                    <input type="hidden" name="upid" value="<?= $cart['idcart']; ?>">
                   </td>
                   <td>
-                        <input type="submit" name="update" value="Update" class="btn btn-sm btn-warning">
-                      </form>
+                    <input type="submit" name="update" value="Update" class="btn btn-sm btn-warning">
+                    </form>
                   </td>
+                  <br>
                   <td>
                     <a class="btn btn-sm btn-danger" href="../includes/cart.inc/removecartitem.php?idcart=<?= $cart['idcart']; ?>">Remove</a>
                   </td>
                 </tr>
-                <div class="checkout-btn">
-                    <a href="checkout.php" class="btn <?= ($intotaal > 1)?'':'disabled'; ?>">proceed to checkout</a>
-                  </div>
                 <?php                  
                   }
                 }
@@ -77,7 +75,9 @@ include_once '../demo/header.php';
                   <td>
                     <a class="delete_all" href="../includes/cart.inc/emptycart.php?" onclick="return confirm('remove item from cart?')">Delete all</a>
                   </td>
-                  
+                  <td class="checkout-btn">
+                  <a href="checkout.php" class="btn <?= ($intotaal > 1)?'':'disabled'; ?>">proceed to checkout</a>
+                  </td>
             </tr>
       </body>
     </form>
