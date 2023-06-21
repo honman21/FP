@@ -84,9 +84,6 @@ include_once '../demo/header.php';
                   <td>
                     <a class="delete_all" href="../includes/cart.inc/emptycart.php?" onclick="return confirm('remove item from cart?')">Delete all</a>
                   </td>
-                  <td class="checkout-btn">
-                  <a href="checkout.php" class="btn <?= ($intotaal > 1)?'':'disabled'; ?>">proceed to checkout</a>
-                  </td>
             </tr>
       </body>
     </form>

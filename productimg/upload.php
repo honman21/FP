@@ -18,7 +18,7 @@
   <section id="uploadCon">
     <form action="../includes/upload.inc.php" method="POST" enctype="multipart/form-data">
       <input type="text" name="naam" id="naam" placeholder="Product naam" >
-      <input type="number" name="prijs" id="prijs" placeholder="Product prijs" >
+      <input type="text" name="prijs" id="prijs" placeholder="Product prijs" >
       <input type="text" name="omschrijving" id="omschrijving" placeholder="Product omschrijving">
       <input type="file" name="image" id="image">
       <input type="submit" value="upload" name="submit">

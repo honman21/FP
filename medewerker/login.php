@@ -3,9 +3,10 @@ include_once '../demo/header.php';
 
 ?>
 
-
+      <br>
       <section class="login">
         <H2>Login medewerker</H2>
+        <br>
         <form action="../includes/login.inc/login.inc.med.php" method="POST">
           <input type="text" name="email" placeholder="Email" >
           <br>

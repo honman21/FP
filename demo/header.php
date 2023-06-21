@@ -24,7 +24,7 @@ include_once '../demo/config.php';
         <li><a href="../cart/index.php">Shop</a></li>
 
         <?php
-          if (isset($_SESSION["klant"])) {
+          if (isset($_SESSION["klant"]) || isset($_SESSION["medewerker"])) {
             echo "<li><a href='../profile/profile.php'>Profiel</a></li>";
             echo "<li><a href='../includes/login.inc/logout.inc.php'>Logout</a></li>";
           }

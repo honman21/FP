@@ -48,7 +48,7 @@ if (isset($_GET['idcart'])) {
   ?>
 
   <form action="" method="post">
-    <div class="cart-items">
+    <div class="items">
       <h2>
         <?php echo $assoc_artikel['naam'];?>
       </h2>
