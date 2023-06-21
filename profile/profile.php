@@ -14,6 +14,17 @@ include_once '../includes/function.inc.php';
 ?>
     <h1>Your Profile</h1>
 
+
+    <div class="row"> 
+            <div class="col-3">
+                <label>Last Name</label>
+            </div>
+             <div class="col">
+                <input type="text" name="voornaam" value="<?php echo $voornaam;?>">
+            </div>
+          </div>
+      </div>
+
     <div class="profile">
       Voornaam: <?php echo $_SESSION['voornaam'];?> <br>
       Tussenvoegsel: <?php echo $_SESSION['tussenvoegsel'];?> <br>
