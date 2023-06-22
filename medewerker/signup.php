@@ -2,9 +2,10 @@
 include_once '../demo/header.php';
 ?>
 
-
+      <br>
       <section class="signupmed">
         <H2>Sign up Medewerker</H2>
+        <br>
         <form action="../includes/login.inc/signup.inc.med.php" method="POST">
           <input type="text" name="email" placeholder="Email" >
           <br>

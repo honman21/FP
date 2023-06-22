@@ -2,6 +2,10 @@
 session_start(); 
 include_once '../demo/config.php';
 
+if (isset($_SESSION["klant"])) {
+  $idklant = $_SESSION["idklant"];
+}
+
 ?>
 
 <html>

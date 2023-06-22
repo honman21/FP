@@ -1,6 +1,6 @@
 <?php
-include "include/database.php";
-include "include/header.php";
+include "../demo/config.php";
+include "../demo//header.php";
 
 if(isset($_POST['update_profile'])){
 
@@ -12,35 +12,32 @@ if(isset($_POST['update_profile'])){
     $plaats = $_POST['plaats'];
     $postcode = $_POST['postcode'];
     $telefoon = $_POST['telefoonnummer'];
-    $gdatum = $_POST['geboortedatum'];
+    $geboortedatum = $_POST['geboortedatum'];
 
     $sql = "UPDATE klant SET voornaam = '$naam', tussenvoegsel = '$tussen', achternaam = '$achternaam', adres = '$adres', huisnummer = '$huisnummer', plaats = '$plaats', postcode = '$postcode',
-        telefoon = '$telefoon', geboortedatum = '$gdatum' WHERE idklant = $id";
+        telefoon = '$telefoon', geboortedatum = '$geboortedatum' WHERE idklant = $idklant";
 
-    if ($link->query($sql) === TRUE) {
-        echo "Record updated successfully";
+    if ($connect->query($sql) === TRUE) {
+        echo "Profiel updated";
     } else {
-        echo "Error updating record: " . $link->error;
+        echo "Error updating record: " . $connect->error;
     }
 
 
 }
 
-$select_klant = mysqli_query($link, "SELECT * FROM klant WHERE idklant = $id");
-while ($row = mysqli_fetch_array($select_klant)){
-    $name = $row['voornaam'];
-    $tussen = $row['tussenvoegsel'];
-    $achternaam = $row['achternaam'];
-    $adres = $row['adres'];
-    $huisnummer = $row['huisnummer'];
-    $plaats = $row['plaats'];
-    $postcode = $row['postcode'];
-    $tel = $row['telefoon'];
-    $g_datum = $row['geboortedatum'];
-}
-
-
-
+$select_klant = mysqli_query($connect, "SELECT * FROM klant WHERE idklant = $idklant");
+    while ($row = mysqli_fetch_array($select_klant)){
+        $name = $row['voornaam'];
+        $tussen = $row['tussenvoegsel'];
+        $achternaam = $row['achternaam'];
+        $adres = $row['adres'];
+        $huisnummer = $row['huisnummer'];
+        $plaats = $row['plaats'];
+        $postcode = $row['postcode'];
+        $tel = $row['telefoon'];
+        $geboortedatum = $row['geboortedatum'];
+    }
 
 
 ?>
@@ -63,7 +60,7 @@ while ($row = mysqli_fetch_array($select_klant)){
         <label>Telefoonnummer</label>
         <input type="tel" name="telefoonnummer"  value="<?php echo $tel ?> ">
         <label>Geboortedatum</label>
-        <input type="date" name="geboortedatum" value="<?php echo $g_datum ?> ">
+        <input type="date" name="geboortedatum" value="<?php echo $geboortedatum ?> ">
 
         <input type="submit" class="product-button"  value="Update profile" name="update_profile">
     </form>
@@ -74,6 +71,6 @@ while ($row = mysqli_fetch_array($select_klant)){
 
 <?php
 
-include "include/footer.php";
+include "../demo/footer.php";
 
 ?>

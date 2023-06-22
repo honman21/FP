@@ -47,11 +47,11 @@
 
     if ($connect->query($sql) === true) {
       header ("location: ../productimg/upload.php");
-      echo "<p>Artikel toegevoegd</p>";
     }
 
         addproduct($connect, $naam, $omschrijving, $prijs, $image);
         header ("location: ../productimg/upload.php");
+        echo "<p>Artikel toegevoegd</p>";
   }
   else {
     header ("location:../productimg/upload.php");

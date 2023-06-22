@@ -1,8 +1,6 @@
 
 <?php 
 include_once '../demo/header.php'; 
-
-
 ?>
 
 <div class="cart-items">

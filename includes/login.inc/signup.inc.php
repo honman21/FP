@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
     }
 
   if (invalidemail($email)!== false) {
-    header ("location: /...php?error=invalidemail");
+    header ("location: ../../demo/signupacc?error=invalidemail");
     exit();
     }
 
@@ -25,18 +25,18 @@ if (isset($_POST["submit"])) {
   //   }
 
   if (pwdmatch($pwd, $rppwd)!== false) {
-    header ("location: /...php?error=pwdnotmatch");
+    header ("location: ../../demo/signupaccphp?error=pwdnotmatch");
     exit();
     }
 
     if (klantExists($connect, $email)!== false) {
-      header ("location: /...php?error=Account_bestaat_al");
+      header ("location: ../../demo/signupacc.php?error=Account_bestaat_al");
       exit();
       }
 
   createKlant($connect, $email, $pwd);
 }
 else {
-    header ("location: /...php");
+    header ("location: ../../demo/index.php");
     exit();
      }
