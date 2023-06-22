@@ -15,7 +15,7 @@ include_once '../demo/header.php';
       <button type="submit" name="submit">Login</button>
     </form>
     <br>
-    <p>Inloggen als medewerker?<a href="../medewerker/login.php" style="color:dodgerblue"><br>Klik hier</a></p>
+    <p>Inloggen als admin?<a href="../medewerker/login.php" style="color:dodgerblue"><br>Klik hier</a></p>
     <br>
     <?php
     if (isset($_GET["error"])) {

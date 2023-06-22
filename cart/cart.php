@@ -1,35 +1,36 @@
 
 <?php 
 include_once '../demo/header.php'; 
+$intotaal = 0;
 ?>
 
 <div class="cart-items">
   <table class="table my-3">
     <thead>
           <tr>
-            <th colspan="2">Product</th>
+            <th>Product</th>
+            <th>Image</th>
             <th>Naam</th>
             <th>Beschrijving</th>
             <th>Aantal</th>
           </tr>
     </thead>
-    <form action="">
-      <body>
+
+      <tbody>
         <?php
-        if (isset($_SESSION['cart'])) :
-          $i = 1;
-          foreach ($_SESSION['cart'] as $cart) :
+          if (isset($_SESSION['cart'])) :
+            $i = 1;
+            foreach ($_SESSION['cart'] as $cart) :
         ?>
 
             <tr class="text">
               <td><?php echo $i; ?> </td>
 
                   <?php 
-                      $image = $cart['artikelid'];
-                      $intotaal = 0;
+                    $image = $cart['pro_id'];
 
-                      $select_artikelimg = mysqli_query($connect, "SELECT `image` FROM artikel WHERE idartikel = '$image'");
-                        if(mysqli_num_rows($select_artikelimg) > 0){
+                    $select_artikelimg = mysqli_query($connect, "SELECT `image` FROM artikel WHERE idartikel = '$image'");
+                      if(mysqli_num_rows($select_artikelimg) > 0){
                         while($assoc_image = mysqli_fetch_assoc($select_artikelimg)){
                   ?>
 
@@ -38,53 +39,80 @@ include_once '../demo/header.php';
                   <?php
                       }
                     }
-                      $select_artikelnaam = mysqli_query($connect, "SELECT naam FROM artikel WHERE idartikel = '$image'");
-                        if(mysqli_num_rows($select_artikelnaam) > 0){
+
+                    $select_artikelnaam = mysqli_query($connect, "SELECT naam FROM artikel WHERE idartikel = '$image'");
+                      if(mysqli_num_rows($select_artikelnaam) > 0){
                         while($assoc_naam = mysqli_fetch_assoc($select_artikelnaam)){
                   ?>
-                    <td><?php echo $assoc_naam['naam'];?></td>
+
+                  <td><?php echo $assoc_naam['naam'];?></td>
 
                   <?php
+                      }
                     }
-                  }
+
                     $select_artikelomschrijving = mysqli_query($connect, "SELECT omschrijving FROM artikel WHERE idartikel = '$image'");
                       if(mysqli_num_rows($select_artikelomschrijving) > 0){
-                      while($assoc_omschrijving = mysqli_fetch_assoc($select_artikelomschrijving)){
-                ?>
+                        while($assoc_omschrijving = mysqli_fetch_assoc($select_artikelomschrijving)){
+                  ?>
+
                   <td><?php echo $assoc_omschrijving['omschrijving'];?></td>
 
-
-
-                  <td> Product <?= $cart['artikelid']; ?></td>
                   <td>
-                    <form action="../includes/cart.inc/update.php" method="post">
-                    <input type="number" value="<?= $cart['aantal']; ?>" name="aantal" min="1">
-                    <input type="hidden" name="upid" value="<?= $cart['artikelid']; ?>">
-                  </td>
-                  <td>
-                    <input type="submit" name="update" value="Update" class="btn btn-sm btn-warning">
+                    <form action="../includes/cart.inc/update.php" method="POST">
+                      <input type="number" value="<?=$cart['qty'];?>" name="qty" min="1">
+                      <input type="hidden" name="upid" value="<?= $cart['pro_id'];?>">
+                      <input type="submit" name="update" value="Update" class="update">
                     </form>
                   </td>
+
+                  <?php
+                      }
+                    }
+
+                    $select_artikelprijs = mysqli_query($connect,"SELECT prijs FROM artikel WHERE idartikel = '$image'");
+                      if(mysqli_num_rows($select_artikelprijs) > 0){
+                      while ($assoc_prijs = mysqli_fetch_assoc($select_artikelprijs)){
+                  ?>
+                  <td>
+                    &euro;<?php echo $assoc_prijs['prijs']?>
+                  </td>
+                  <td>
+                    &euro;<?php echo $subtt = $assoc_prijs['prijs'] * $cart['qty'];?>
+                  </td>
+                  <?php
+                      $intotaal += $subtt;
+                  ?>
                   <br>
                   <td>
-                    <a class="btn btn-sm btn-danger" href="../includes/cart.inc/removecartitem.php?artikelid=<?= $cart['artikelid']; ?>">Remove</a>
+                    <a class="remove" href="../includes/cart.inc/removecartitem.php?pro_id=<?= $cart['pro_id']; ?>">Remove</a>
                   </td>
-                </tr>
-                <?php                  
-                  }
-                }
-            
-                    $i++;
-                  endforeach;
-                endif;
-                ?>
-        
+                  <?php
+                      }
+                    }
+                      $i++;
+                    endforeach;
+                  endif;
+
+                  ?>
+
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  <td class="bedrag">Totaal bedrag:</td>
+                  <td class="bedrag">&euro;<?php echo $intotaal; ?></td>
+                  </tr>
                   <td>
-                    <a class="delete_all" href="../includes/cart.inc/emptycart.php?" onclick="return confirm('remove item from cart?')">Delete all</a>
+                    <a class="delete_all" href="../includes/cart.inc/emptycart.php" onclick="return confirm('remove item from cart?')">Delete all</a>
+                  </td>
+                  <td>
+                    <a class="order" href="checkout.php">Order now</a>
                   </td>
             </tr>
-      </body>
-    </form>
+      </tbody>
   </table>
 </div>
 

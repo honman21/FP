@@ -67,10 +67,6 @@ $select_klant = mysqli_query($connect, "SELECT * FROM klant WHERE idklant = $idk
 </div>
 
 
-
-
 <?php
-
 include "../demo/footer.php";
-
 ?>

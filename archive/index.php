@@ -1,8 +1,8 @@
 <?php
 
-include_once '../demo/config.php';
-include_once '../includes/function.inc.php';
-include_once '../demo/header.php';
+include '../demo/config.php';
+include '../includes/function.inc.php';
+include '../demo/header.php';
 ?>
 
 <!DOCTYPE html>

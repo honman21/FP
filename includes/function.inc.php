@@ -124,9 +124,6 @@ function loginklant($connect, $email, $pwd) {
       session_start();
       $_SESSION["idklant"] = $klantExists["idklant"];
       $_SESSION["klant"] = $klantExists["email"];
-      $_SESSION["voornaam"] = $klantExists["voornaam"];
-      $_SESSION["tussenvoegsel"] = $klantExists["tussenvoegsel"];
-      $_SESSION["achternaam"] = $klantExists["achternaam"];
       
       header ("location: ../../demo/index.php");
       exit();
@@ -202,12 +199,9 @@ function loginMedewerker($connect, $email, $pwd) {
       session_start();
       $_SESSION["idmedewerker"] = $MedewerkerExists["idmedewerker"];
       $_SESSION["medewerker"] = $MedewerkerExists["email"];
-      $_SESSION["klant"] = $klantExists["email"];
-      $_SESSION["voornaam"] = $MedewerkerExists["voornaam"];
-      $_SESSION["tussenvoegsel"] = $MedewerkerExists["tussenvoegsel"];
-      $_SESSION["achternaam"] = $MedewerkerExists["achternaam"];
+
       
-      header ("location: ../../demo/index.php");
+      header ("location: ../../admin/index.php");
       exit();
     }
   }
@@ -247,19 +241,12 @@ function loginMedewerker($connect, $email, $pwd) {
 // return $result;
 // }
 
-// function fileexists($upload_file) {
-//   $result;
-//   if(fileexists($upload_file)) {
-//     $result = true;
-//   }
-//   else {
-//     $result = false;
-// }
-// return $result;
-// }
 
 
-//SHOPPINGCART
+
+//product
+
+
 
 
 

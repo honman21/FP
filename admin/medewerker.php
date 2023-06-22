@@ -4,16 +4,18 @@ include_once '../admin/header.php';
 
       <br>
       <section class="signupmed">
-        <H2>Sign up Medewerker</H2>
+        <H1>Medewerker toevoegen</H1>
         <br>
-        <form action="../includes/login.inc/signup.inc.med.php" method="POST">
-          <input type="text" name="email" placeholder="Email" >
+        <form action="includes/medewerkerS.php" method="POST">
+          <input class="textbox" type="text" name="email" placeholder="Email" >
           <br>
-          <input type="password" name="pwd" placeholder="Wachtwoord" >
+          <input class="textbox" type="text" name="voornaam" placeholder="Voornaam" required>
           <br>
-          <input type="password" name="rppwd" placeholder="Herhaal wachtwoord" >
+          <input class="textbox" type="text" name="tussenvoegsel" placeholder="Tussenvoegsel" >
           <br>
-          <button type="submit" name="submit">Sign up</button>
+          <input class="textbox" type="text" name="achternaam" placeholder="Achternaam" required>
+          <br>
+          <button type="submit" name="submit">Toevoegen</button>
         </form>
 
         <?php
@@ -24,14 +26,11 @@ include_once '../admin/header.php';
           else if ($_GET["error"] == "invalidemail") {
             echo "<p>Email klopt niet</p>";
           }
-          else if ($_GET["error"] == "pwdnotmatch") {
-            echo "<p>Wachtwoord </p>";
-          }
           else if ($_GET["error"] == "Account_bestaat_al") {
             echo "<p>Account bestaat al</p>";
           }
           else if ($_GET["error"] == "none") {
-            echo "<p>Account is gemaakt!</p>";
+            echo "<p>Medewerker toegevoegd!</p>";
           }
         }
       ?>

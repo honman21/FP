@@ -1,5 +1,50 @@
-a {
-  color: black;
+a.remove, a.delete, a.order, a.delete_all {
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+  min-height: 44px;
+  min-width: 10px;
+  padding: 9px 20px 8px;
+  text-align: center;
+  text-transform: none;
+  width: auto;
+  text-decoration: none;
+}
+
+a.add {
+  background-color: rgb(61, 61, 61);
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  max-width: none;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  text-decoration: none;
 }
 
 * {
@@ -7,8 +52,7 @@ a {
   padding: 0;
   font-size: 100%;
   font-family: sans-serif;
-
-    
+  text-align: center;
  }
 
 
@@ -92,8 +136,9 @@ body
 
 
 
-button[type="submit"] {
-  background-color: black;
+button[type="submit"],
+a[type="submit"] {
+  background-color: rgb(61, 61, 61);
   border-radius: 4px;
   border-style: none;
   box-sizing: border-box;
@@ -117,10 +162,13 @@ button[type="submit"] {
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 10%;
+  text-decoration: none;
 }
 
 button[type="submit"]:hover,
-button[type="submit"]:focus {
+button[type="submit"]:focus,
+a[type="submit"]:hover,
+a[type="submit"]:focus {
   opacity: .75;
 }
 
@@ -128,7 +176,17 @@ button[type="submit"]:focus {
 
 input[type=text], input[type=password], input[type=file], input[type=number]
 {
-  width: 45%;
+  width: 40%;
+  padding: 15px;
+  margin: 5px 10px 22px ;
+  display: inline-block;
+  border: none;
+  text-align: center;
+  background-color: rgb(211, 211, 211);
+}
+
+input[type=textc] {
+  width: auto;
   padding: 15px;
   margin: 5px 10px 22px ;
   display: inline-block;
@@ -144,8 +202,19 @@ p.error {
 .cart-items {
   border: solid 1px black;
   list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
+
+
+
+.upload {
+  width: 50%;
+}
+
+#uploadCon form {
+
+align-items: center;
+}
+

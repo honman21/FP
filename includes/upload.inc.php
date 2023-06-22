@@ -14,8 +14,6 @@
     $image = $upload_dir.$_FILES["image"]["name"];
 
     $upload_dir = "../image/";
-    // $upload_dir.$_FILES["image"]["name"];
-    // $upload_file = $upload_dir.basename($_FILES["image"]["name"]);
     $imagetype = strtolower(pathinfo($image, PATHINFO_EXTENSION));
     $check = $_FILES["image"]["size"];
   
@@ -37,7 +35,7 @@
     //   }
 
     if (emptyinput($naam, $omschrijving, $prijs, $image)!== false) {
-        header ("location: ../productimg/upload.php?error=emptyinput");
+        header ("location: ../admin/producttoe.php?error=emptyinput");
         exit();
         }
       
@@ -46,15 +44,14 @@
     // }
 
     if ($connect->query($sql) === true) {
-      header ("location: ../productimg/upload.php");
+      header ("location: ../admin/producttoe.php");
     }
 
         addproduct($connect, $naam, $omschrijving, $prijs, $image);
-        header ("location: ../productimg/upload.php");
-        echo "<p>Artikel toegevoegd</p>";
+        header ("location: ../admin/producttoe.php?error=none");
   }
   else {
-    header ("location:../productimg/upload.php");
+    header ("location:../admin/producttoe.php");
     exit();
        }
       
