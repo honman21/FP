@@ -27,7 +27,7 @@ include_once '../demo/header.php';
               <td><?php echo $i; ?> </td>
 
                   <?php 
-                      $image = $cart['idcart'];
+                      $image = $cart['artikelid'];
                       $intotaal = 0;
 
                       $select_artikelimg = mysqli_query($connect, "SELECT `image` FROM artikel WHERE idartikel = '$image'");
@@ -57,11 +57,11 @@ include_once '../demo/header.php';
 
 
 
-                  <td> Product <?= $cart['idcart']; ?></td>
+                  <td> Product <?= $cart['artikelid']; ?></td>
                   <td>
                     <form action="../includes/cart.inc/update.php" method="post">
                     <input type="number" value="<?= $cart['aantal']; ?>" name="aantal" min="1">
-                    <input type="hidden" name="upid" value="<?= $cart['idcart']; ?>">
+                    <input type="hidden" name="upid" value="<?= $cart['artikelid']; ?>">
                   </td>
                   <td>
                     <input type="submit" name="update" value="Update" class="btn btn-sm btn-warning">
@@ -69,7 +69,7 @@ include_once '../demo/header.php';
                   </td>
                   <br>
                   <td>
-                    <a class="btn btn-sm btn-danger" href="../includes/cart.inc/removecartitem.php?idcart=<?= $cart['idcart']; ?>">Remove</a>
+                    <a class="btn btn-sm btn-danger" href="../includes/cart.inc/removecartitem.php?artikelid=<?= $cart['artikelid']; ?>">Remove</a>
                   </td>
                 </tr>
                 <?php                  

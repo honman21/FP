@@ -3,31 +3,31 @@ include '../demo/header.php';
 
 
 // Check if product is coming or not
-if (isset($_GET['idcart'])) {
-  $idcart = $_GET['idcart'];
+if (isset($_GET['artikelid'])) {
+  $artikelid = $_GET['artikelid'];
   // If session cart is not empty
   if (!empty($_SESSION['cart'])) {
     // Using "array_column() function" we get the product id existing in session cart array
-    $acol = array_column($_SESSION['cart'], 'idcart');
+    $acol = array_column($_SESSION['cart'], 'artikelid');
     // now we compare whther id already exist with "in_array() function"
-    if (in_array($idcart, $acol)) {
+    if (in_array($artikelid, $acol)) {
       // Updating quantity if item already exist
-      $_SESSION['cart'][$idcart]['aantal'] += 1;
+      $_SESSION['cart'][$artikelid]['aantal'] += 1;
     } else {
 
       $item = [
-        'idcart' => $_GET['idcart'],
+        'artikelid' => $_GET['artikelid'],
         'aantal' => 1
       ];
-      $_SESSION['cart'][$idcart] = $item;
+      $_SESSION['cart'][$artikelid] = $item;
     }
   } else {
 
     $item = [
-      'idcart' => $_GET['idcart'],
+      'artikelid' => $_GET['artikelid'],
       'aantal' => 1
     ];
-    $_SESSION['cart'][$idcart] = $item;
+    $_SESSION['cart'][$artikelid] = $item;
   }
 }
 
@@ -68,7 +68,7 @@ if (isset($_GET['idcart'])) {
       <img src="../image/<?php echo $assoc_artikel['image'];?>" height="100">
 
       <div class="add_cart">
-        <a href="../cart/index.php?idcart=<?php echo $assoc_artikel['idartikel']?>" type="button">Add to Cart</a>
+        <a href="../cart/index.php?artikelid=<?php echo $assoc_artikel['idartikel']?>" type="button">Add to Cart</a>
       </div>
 
         <?php 

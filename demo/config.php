@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "flowerpower";
+$db = "flowerpwer";
 
 $connect = mysqli_connect($servername, $username, $password, $db);
 
