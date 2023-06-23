@@ -1,6 +1,10 @@
 <?php
 include_once 'header.php';
 include_once '../demo/config.php';
+
+// if(!isset($_SESSION['medewerker'])) {
+//       header ("location: ../demo/index.php");
+//     }
 ?>
 
 <!DOCTYPE html>

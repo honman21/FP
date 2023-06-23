@@ -218,3 +218,7 @@ p.error {
 align-items: center;
 }
 
+form.contact-form {
+  text-align: center;
+  text-decoration: flex;
+}

@@ -44,11 +44,10 @@ if (isset($_SESSION["klant"])) {
         <?php
          if (isset($_SESSION["medewerker"])) {
           echo "<li><a href='../admin/index.php'>Producten</a></li>";
-          echo "<li><a href='../admin/index.php'></a></li>";
         }  
 
           if (isset($_SESSION["klant"])) {
-          echo "<li><a href='../cart/index.php'>Shop</a></li>";
+          echo "<li><a href='../profile/profile.php'>Profiel</a></li>";
           echo "<li><a href='../cart/cart.php'>Cart</a></li>";
         }
         else {

@@ -109,7 +109,7 @@ $intotaal = 0;
                     <a class="delete_all" href="../includes/cart.inc/emptycart.php" onclick="return confirm('remove item from cart?')">Delete all</a>
                   </td>
                   <td>
-                    <a class="order" href="checkout.php">Order now</a>
+                    <a class="order" href="checkout.php" class="btn <?= ($intotaal > 1)?'':'disabled'; ?>">Order now</a>
                   </td>
             </tr>
       </tbody>

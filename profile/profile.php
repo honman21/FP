@@ -2,6 +2,10 @@
 include "../demo/config.php";
 include "../demo//header.php";
 
+if(!isset($_SESSION['klant'])) {
+    header ("location: ../demo/signupacc.php");
+  }
+
 if(isset($_POST['update_profile'])){
 
     $naam = $_POST['voornaam'];

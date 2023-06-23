@@ -301,4 +301,4 @@ function loginMedewerker($connect, $email, $pwd) {
 //EDIT PROFILE GEGEVENS
 
 
-   
+//auth_check
