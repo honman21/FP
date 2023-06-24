@@ -6,14 +6,14 @@ include_once '../admin/header.php';
       <section class="signupmed">
         <H1>Medewerker toevoegen</H1>
         <br>
-        <form action="includes/medewerkerS.php" method="POST">
+        <form action="includes/medewerkerS.inc.php" method="POST">
           <input class="textbox" type="text" name="email" placeholder="Email" >
           <br>
-          <input class="textbox" type="text" name="voornaam" placeholder="Voornaam" required>
+          <input class="textbox" type="text" name="voornaam" placeholder="Voornaam">
           <br>
           <input class="textbox" type="text" name="tussenvoegsel" placeholder="Tussenvoegsel" >
           <br>
-          <input class="textbox" type="text" name="achternaam" placeholder="Achternaam" required>
+          <input class="textbox" type="text" name="achternaam" placeholder="Achternaam">
           <br>
           <button type="submit" name="submit">Toevoegen</button>
         </form>
@@ -27,7 +27,7 @@ include_once '../admin/header.php';
             echo "<p>Email klopt niet</p>";
           }
           else if ($_GET["error"] == "Account_bestaat_al") {
-            echo "<p>Account bestaat al</p>";
+            echo "<p>Account bestaat al!</p>";
           }
           else if ($_GET["error"] == "none") {
             echo "<p>Medewerker toegevoegd!</p>";

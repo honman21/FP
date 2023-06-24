@@ -1,42 +1,35 @@
 <?php
+  require_once '../../demo/config.php';
+  require_once '../../includes/function.inc.php';
 
 if (isset($_POST["submit"])) {
 
   $email = $_POST["email"];
-  $pwd = $_POST["pwd"];
-  $rppwd = $_POST["rppwd"];
+  $voornaam = $_POST["voornaam"];
+  $tussenvoegsel = $_POST["tussenvoegsel"];
+  $achternaam = $_POST["achternaam"];
 
-  require_once '../../demo/config.php';
-  require_once '../function.inc.php';
 
-  if (emptyInputSignup($email, $pwd, $rppwd)!== false) {
-    header ("location: ../../medewerker/signup.php?error=emptyinput");
+  if (MedewerkerExistsM($connect, $email)!== false) {
+    header ("location: ../medewerker.php?error=Account_bestaat_al");
     exit();
     }
 
-  if (invalidemail($email)!== false) {
-    header ("location: /...php?error=invalidemail");
+  if (emptyInputSignupM($email, $voornaam, $achternaam)!== false) {
+    header ("location: ../medewerker.php?error=emptyinput");
     exit();
     }
 
-  // if (pwdlength($pwd, $rppwd)!== false) {
-  //   header ("location: /...php?error=pwdlength");
-  //   exit();
-  //   }
-
-  if (pwdmatch($pwd, $rppwd)!== false) {
-    header ("location: /...php?error=pwdnotmatch");
+  if (invalidemailM($email)!== false) {
+    header ("location: ../medewerker.php?error=invalidemail");
     exit();
     }
 
-    if (MedewerkerExists($connect, $email)!== false) {
-      header ("location: /...php?error=Account_bestaat_al");
-      exit();
-      }
 
-  createMedewerker($connect, $email, $pwd);
+  voegmedewerker($connect, $email, $voornaam, $tussenvoegsel, $achternaam);
+  header ("location: ../medewerker.php?error=none");
 }
 else {
-    header ("location: ../../medewerker/signup.php");
+    header ("location: ../../admin/medewerker.php");
     exit();
      }

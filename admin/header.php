@@ -1,5 +1,6 @@
 <?php
 session_start();
+include_once '../demo/config.php';
 
 ?>
 
@@ -18,7 +19,7 @@ session_start();
       <div class="bar">
         <li><a href="product.php">Producten</a></li>
         <li><a href="medewerker.php">Medewerkers</a></li>
-        <li><a href="bestelling.php">Bestellingen</a></li>
+        <li><a href="factuur.php">Bestellingen</a></li>
         <li><a href="logout.php">Logout</a></li>
         
       </div>

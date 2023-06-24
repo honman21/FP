@@ -301,4 +301,83 @@ function loginMedewerker($connect, $email, $pwd) {
 //EDIT PROFILE GEGEVENS
 
 
-//auth_check
+//CART
+
+function emptyinputcart($artikelid) {
+  $result;
+if (empty($artikelid)) {
+  $result = true;
+}
+else {
+  $result = false;
+}
+return $result;
+}
+
+//MEDEWERKERS TOEVOEGEN/VERWIJDEREN
+
+function voegmedewerker($connect, $email, $voornaam, $tussenvoegsel, $achternaam) {
+  $sql = "INSERT INTO medewerker (email, voornaam, tussenvoegsel, achternaam) VALUES (?,?,?,?);";
+  $stmt = mysqli_stmt_init($connect);
+
+  if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header ("location: ../admin/medewerker.php?error=stmtfailed");
+    exit();
+  }
+
+  mysqli_stmt_bind_param($stmt, "ssss", $email, $voornaam, $tussenvoegsel, $achternaam);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
+  header ("location: ../admin/medewerker.php?error=none");
+  exit();
+}
+
+function MedewerkerExistsM($connect, $email) {
+    $sql = "SELECT * FROM medewerker WHERE email = ?;";
+    $stmt = mysqli_stmt_init($connect);
+  
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+      header ("location: ../../medewerker/signup.php?error=stmtfailed");
+      exit();
+    }
+  
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+  
+    $resultData = mysqli_stmt_get_result($stmt);
+  
+    if ($row = mysqli_fetch_assoc($resultData)) {
+      return $row;
+    }
+  
+    else {
+      $result = false;
+      return $result;
+    }
+    header ("location: ../admin/medewerker.php?error=none");
+    exit();
+  
+    mysqli_stmt_close($stmt);
+  }
+
+  function emptyInputSignupM($email, $voornaam, $achternaam) {
+    $result;
+  if (empty($email) || empty($voornaam) || empty($achternaam)) {
+    $result = true;
+  }
+  else {
+    $result = false;
+  }
+  return $result;
+  }
+
+  function invalidemailM($email) {
+    $result;
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $result = true;
+  }
+  else {
+    $result = false;
+  }
+  return $result;
+  }

@@ -6,8 +6,8 @@ if (isset($_GET['id'])) {
   $id = $_GET['id'];
   $delete = mysqli_query($connect,"DELETE FROM `artikel` WHERE `idartikel`='$id'");
 }
-$select = "select * from artikel";
-$query = mysqli_query($connect, $select);
+$sql = "select * from artikel";
+$query = mysqli_query($connect, $sql);
 if(isset($_POST['update_item'])) {
   $artikel_id = $_POST['idartikel'];
   $artikel_naam = $_POST['naam'];
@@ -51,9 +51,9 @@ if(isset($_POST['update_item'])) {
         <th>Delete</th>
     </tr>
     <?php
-        $num = mysqli_num_rows($query);
-        if ($num > 0){
-            while ($result = mysqli_fetch_assoc($query)){
+        $rows = mysqli_num_rows($query);
+        if ($rows > 0){
+            while ($assoc_artikel = mysqli_fetch_assoc($query)){
                 echo "
                 <tr>
 <style> 
@@ -75,36 +75,41 @@ input {
 }
 
 </style>
-                <form method='post'>
-                    <td>".$result['idartikel']."</td>
-                    <input hidden name='idartikel' value='".$result['idartikel']."'>
-                    <td>
-                    <img src='../image/".$result['image']."'height='100'>
-                    </td>
-                    <td>
-                    <input type='textc' name='naam' value='".$result['naam']."'>
-                    </td>
-                    <td>
-                    <input type='textc' name='prijs' value='".$result['prijs']."'>
-                    </td>
-                    <td>
-                    <input type='textc' name='opslag' value='".$result['opslag']."'>
-                    </td>
-                    <td>
-                    <textarea name='omschrijving'>".$result['omschrijving']."</textarea>
-                    </td>
-                    
-                    <td> 
-                        <input type='submit' class='product-button' value='Update item' name='update_item'>
-                    </td>
-                    </form>
-                    <td> 
-                        <a href='productbew.php?id=".$result['idartikel']."' ><button>Delete</button></a>
-                    </td>
-                </tr>
-                
-                ";
-            }
-        }
 
+  <form method='POST'>
+      <td>".$assoc_artikel['idartikel']."</td>
+      <input hidden name='idartikel' value='".$assoc_artikel['idartikel']."'>
+
+      <td>
+      <img src='../image/".$assoc_artikel['image']."'height='100'>
+      </td>
+
+      <td>
+      <input type='textc' name='naam' value='".$assoc_artikel['naam']."'>
+      </td>
+
+      <td>
+      <input type='textc' name='prijs' value='".$assoc_artikel['prijs']."'>
+      </td>
+
+      <td>
+      <input type='textc' name='opslag' value='".$assoc_artikel['opslag']."'>
+      </td>
+
+      <td>
+      <textarea name='omschrijving'>".$assoc_artikel['omschrijving']."</textarea>
+      </td>
+
+      <td> 
+          <input type='submit' class='product-button' value='Update item' name='update_item'>
+      </td>
+  </form>
+
+      <td> 
+          <a href='productbew.php?id=".$assoc_artikel['idartikel']."' ><button>Delete</button></a>
+      </td>
+    </tr>
+  ";
+          }
+        }
     ?>

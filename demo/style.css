@@ -195,7 +195,7 @@ input[type=textc] {
   background-color: rgb(211, 211, 211);
 }
 
-p.error {
+.wrapper p {
   font-weight: bold;
 }
 
@@ -221,4 +221,8 @@ align-items: center;
 form.contact-form {
   text-align: center;
   text-decoration: flex;
+}
+
+label {
+  text-align: center;
 }

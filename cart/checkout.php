@@ -2,7 +2,12 @@
 include '../demo/header.php';
 include_once '../includes/function.inc.php';
 
+if (emptyinputcart($artikelid) !== false) {
+   header ("location: cart.php?error=emptyinput");
+   }
+
 if(isset($_SESSION["klant"])){
+
 
     $id = $_SESSION["idklant"];
 
@@ -15,7 +20,7 @@ if(isset($_SESSION["klant"])){
 
 
     } else {
-        echo "Error:" . $sql . "<br>" . $connect->error;
+        header ("location: ../cart/cart.php?error=Somethingwentwrong");
     }
    if (isset($_SESSION['cart'])) {
         foreach ($_SESSION['cart'] as $cart) {
@@ -28,9 +33,8 @@ if(isset($_SESSION["klant"])){
 
                 unset($_SESSION['cart']);
 
-
             } else {
-                echo "Error:" . $sql . "<br>" . $connect->error;
+                header ("location: ../demo/signupacc.php?error=Somethingwentwrong");
             }
         }
     }

@@ -45,25 +45,27 @@ $select_klant = mysqli_query($connect, "SELECT * FROM klant WHERE idklant = $idk
 
 
 ?>
+
 <div class="wrapper">
     <form method="post">
-        <label>Voornaam</label>
+        <br>
+        <p>Voornaam</p>
         <input type="text" name="voornaam" value="<?php echo $name ?> ">
-        <label>Tussenvoegsel</label>
+        <p>Tussenvoegsel</p>
         <input type="text" name="tussenvoegsel" value="<?php echo $tussen ?> ">
-        <label>Achternaam</label>
+        <p>Achternaam</p>
         <input type="text" name="achternaam" value="<?php echo $achternaam ?> ">
-        <label>Adres</label>
+        <p>Adres</p>
         <input type="text" name="adres"  value="<?php echo $adres ?> ">
-        <label>Huisnummer</label>
+        <p>Huisnummer</p>
         <input type="text" name="huisnummer"  value="<?php echo $huisnummer ?> ">
-        <label>Plaats</label>
+        <p>Plaats</p>
         <input type="text" name="plaats"  value="<?php echo $plaats ?> ">
-        <label>Postcode</label>
+        <p>Postcode</p>
         <input type="text" name="postcode"  value="<?php echo $postcode ?> ">
-        <label>Telefoonnummer</label>
+        <p>Telefoonnummer</p>
         <input type="tel" name="telefoonnummer"  value="<?php echo $tel ?> ">
-        <label>Geboortedatum</label>
+        <p>Geboortedatum</p>
         <input type="date" name="geboortedatum" value="<?php echo $geboortedatum ?> ">
 
         <input type="submit" class="product-button"  value="Update profile" name="update_profile">
