@@ -3,8 +3,8 @@ include_once '../admin/header.php';
 include_once '../demo/config.php';
 
 if (isset($_GET['id'])) {
-  $id = $_GET['id'];
-  $delete = mysqli_query($connect,"DELETE FROM `artikel` WHERE `idartikel`='$id'");
+  $proid = $_GET['id'];
+  $delete = mysqli_query($connect,"DELETE FROM `artikel` WHERE `idartikel`='$proid'");
 }
 $sql = "select * from artikel";
 $query = mysqli_query($connect, $sql);

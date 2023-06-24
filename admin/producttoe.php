@@ -13,15 +13,19 @@
 </head>
 <body>
 <br>
-  <section id="uploadCon">
+  <section >
     <form action="../includes/upload.inc.php" method="POST" enctype="multipart/form-data">
-      <input type="text" name="naam" id="naam" placeholder="Product naam" >
-      <input type="text" name="prijs" id="prijs" placeholder="Product prijs" >
-      <input type="text" name="omschrijving" id="omschrijving" placeholder="Product omschrijving">
-      <input type="file" name="image" id="image">
-      <input class="upload" type="submit" value="Upload" name="submit">
+      <input class="textbox" type="text" name="naam" id="naam" placeholder="Product naam" >
+      <br>
+      <input class="textbox" type="text" name="prijs" id="prijs" placeholder="Product prijs" >
+      <br>
+      <input class="textbox" type="text" name="omschrijving" id="omschrijving" placeholder="Product omschrijving">
+      <br>
+      <input class="textbox" type="file" name="image" id="image">
+      <br>
+      <button type="submit" name="submit">Toevoegen</button>
     </form>
-
+<br>
     <?php
         if (isset($_GET["error"])) {
           if ($_GET["error"] == "emptyinput") {

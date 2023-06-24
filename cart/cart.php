@@ -19,6 +19,8 @@ if (isset($_GET["error"])) {
             <th>Naam</th>
             <th>Beschrijving</th>
             <th>Aantal</th>
+            <th>Prijs</th>
+            <th>Totaal</th>
           </tr>
     </thead>
 
@@ -108,7 +110,7 @@ if (isset($_GET["error"])) {
                     <td></td>
                     <td></td>
                     <td></td>
-                  <td class="bedrag">Totaal bedrag:</td>
+                  <td class="bedrag">Totale bedrag:</td>
                   <td class="bedrag">&euro;<?php echo $intotaal; ?></td>
                   </tr>
                   <td>
