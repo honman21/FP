@@ -67,7 +67,7 @@ if(isset($_SESSION["klant"])){
                 <div class="text-center">
                     <h1>Thank You !</h1>
                     <p>Lorem ipsum dolor sit,lorem lorem. Lorem ipsum dolor sit,lorem lorem </p>
-                    <a href="index.php" class="btn btn-outline-success">Terug</a>
+                    <a href="../cart/cart.php" class="btn btn-outline-success">Terug</a>
                 </div>
             </div>
     </body>

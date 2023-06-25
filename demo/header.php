@@ -48,7 +48,7 @@ if (isset($_SESSION["klant"])) {
         }  
 
           if (isset($_SESSION["klant"])) {
-          echo "<li><a href='../profile/profile.php'>Profiel</a></li>";
+          echo "<li><a href='../profile/menu.php'>Profiel</a></li>";
           echo "<li><a href='../cart/cart.php'>Cart</a></li>";
         }
         else {
