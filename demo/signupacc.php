@@ -6,7 +6,7 @@ include_once 'header.php';
       <section class="signup">
         <H2>Sign up</H2>
         <br>
-        <form action="../includes/login.inc/signup.inc.php" method="POST">
+        <form class="acc" action="../includes/login.inc/signup.inc.php" method="POST">
           <input type="text" name="email" placeholder="Email" >
           <br>
           <input type="password" name="pwd" placeholder="Wachtwoord" >

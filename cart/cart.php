@@ -3,11 +3,6 @@
 include_once '../demo/header.php'; 
 $intotaal = 0;
 
-if (isset($_GET["error"])) {
-  if ($_GET["error"] == "emptyinput") {
-    echo "<h3>Geen artikelen in cart</h3>";
-  }
-}
 ?>
 
 <div class="cart-items">

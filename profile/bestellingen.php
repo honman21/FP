@@ -1,11 +1,10 @@
 <?php
 include '../demo/header.php';
-if(isset($_POST['go_order'])){
+
+if(isset($_POST['factuur'])){
     $_SESSION['factuurid'] = $_POST['factuurid'];
     header("location: factuur.php");
 }
-
-
 
 ?>
 <br>
@@ -18,8 +17,8 @@ if(isset($_POST['go_order'])){
         <thead>
         <tr class="text-center">
             <th>Bestelling nummer</th>
-            <th>bestelt op</th>
-            <th>meer info</th>
+            <th>Bestelt op</th>
+            <th>Meer</th>
         </tr>
         </thead>
         <?php
@@ -40,7 +39,7 @@ if(isset($_POST['go_order'])){
                     " . $result['datum'] . "
                     </td>
                     <td>
-                    <input type='submit' value='Meer info' name='go_order'>
+                    <input type='submit' value='Meer info' name='factuur'>
                     </td>
                     </form>
                 </tr>
@@ -52,9 +51,11 @@ if(isset($_POST['go_order'])){
         ?>
     </table>
 </div>
+
 <div class="terug">
-<a href="profielmenu.php" class="terug">Terug</a>
+<a type="submit" href="menu.php">Terug</a>
 </div>
+
 <?php
-include "include/footer.php";
+include "../demo/footer.php";
 ?>

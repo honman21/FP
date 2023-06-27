@@ -19,7 +19,7 @@ include_once '../demo/config.php';
       <div class="bar">
         <li><a href="product.php">Producten</a></li>
         <li><a href="medewerker.php">Medewerkers</a></li>
-        <li><a href="factuur.php">Bestellingen</a></li>
+        <li><a href="bestelpage.php">Bestellingen</a></li>
         <li><a href="logout.php">Logout</a></li>
         
       </div>

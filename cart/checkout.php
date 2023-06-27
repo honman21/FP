@@ -2,10 +2,6 @@
 include '../demo/header.php';
 include_once '../includes/function.inc.php';
 
-if (emptyinputcart($artikelid) !== false) {
-   header ("location: cart.php?error=emptyinput");
-   }
-
 if(isset($_SESSION["klant"])){
 
 

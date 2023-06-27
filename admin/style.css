@@ -29,14 +29,6 @@ nav ul li a {
   color: #333;
 }
 
-.banner {
-  background-image: url('banner.jpg');
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  text-align: center;
-  padding: 100px 0;
-}
 
 .banner h2 {
   margin: 0;

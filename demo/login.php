@@ -7,7 +7,7 @@ include_once '../demo/header.php';
     <br>
     <H2>Login</H2>
     <br>
-    <form action="../includes/login.inc/login.inc.php" method="POST">
+    <form class="acc" action="../includes/login.inc/login.inc.php" method="POST">
       <input type="text" name="email" placeholder="Email" >
       <br>
       <input type="password" name="pwd" placeholder="Wachtwoord" >

@@ -40,6 +40,7 @@ if(isset($_POST['update_medewerker'])) {
 <table>
     <tr>
         <th>ID</th>
+        <th>Email</th>
         <th>Voornaam</th>
         <th>Tussenvoegsel</th>
         <th>Achternaam</th>
@@ -77,7 +78,7 @@ input {
       <input hidden name='idmedewerker' value='".$assoc_medewerker['idmedewerker']."'>
 
       <td>
-      <input type='text' name='email' value='".$assoc_medewerker['email']."'>
+      <input type='textc' name='email' value='".$assoc_medewerker['email']."'>
       </td>
 
       <td>

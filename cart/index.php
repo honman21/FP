@@ -33,11 +33,10 @@ if (isset($_GET['pro_id'])) {
 <head>
     <title>Cart
     </title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../cart/style.css">
   </head>
-
 <div class="cart">
-
   <form action="" method="POST">
     <?php
 
@@ -46,27 +45,25 @@ if (isset($_GET['pro_id'])) {
           while($assoc_artikel = mysqli_fetch_assoc($select_artikel)){
 
     ?>
-        <form action="" method="POST">
-          <div class="items">
+        <form class="shop" method="POST">
+
             <h2><?php echo $assoc_artikel['naam'];?></h2>
             <input type="hidden" name="artikel_naam" value="<?php echo $assoc_artikel['naam']?>">
+          
 
-            <div>
               <?php echo $assoc_artikel['omschrijving'];?>
-            </div>
+          
             <input type="hidden" name="artikel_omschrijving" value="<?php echo $assoc_artikel['omschrijving']?>">
 
-            <th>
               <?php echo $assoc_artikel['prijs'];?>
-            </th>
-            
+          
             <input type="hidden" name="artikel_prijs" value="<?php echo $assoc_artikel['prijs']?>">
 
             <img src="../image/<?php echo $assoc_artikel['image'];?>" height="100">
+          
 
-            <div class="add_cart">
               <a class="add" href="index.php?pro_id=<?php echo $assoc_artikel['idartikel'];?>" type="button">Add to Cart</a>
-            </div>
+          
         </form>
         <br>
 
@@ -78,7 +75,6 @@ if (isset($_GET['pro_id'])) {
     </div>
   </form>
 </div>
-
 
 <?php 
 include 'footer.php'; ?>

@@ -22,7 +22,7 @@ if(isset($_POST['update_profile'])){
         telefoon = '$telefoon', geboortedatum = '$geboortedatum' WHERE idklant = $idklant";
 
     if ($connect->query($sql) === TRUE) {
-        echo "Profiel updated";
+        echo "<h3>Profiel updated</h3>";
     } else {
         echo "Error updating record: " . $connect->error;
     }
@@ -39,7 +39,7 @@ $select_klant = mysqli_query($connect, "SELECT * FROM klant WHERE idklant = $idk
         $huisnummer = $row['huisnummer'];
         $plaats = $row['plaats'];
         $postcode = $row['postcode'];
-        $tel = $row['telefoon'];
+        $telefoon = $row['telefoon'];
         $geboortedatum = $row['geboortedatum'];
     }
 
@@ -64,7 +64,8 @@ $select_klant = mysqli_query($connect, "SELECT * FROM klant WHERE idklant = $idk
         <p>Postcode</p>
         <input type="text" name="postcode"  value="<?php echo $postcode ?> ">
         <p>Telefoonnummer</p>
-        <input type="tel" name="telefoonnummer"  value="<?php echo $tel ?> ">
+        <input type="tel" name="telefoonnummer"  value="<?php echo $telefoon ?> ">
+        
         <p>Geboortedatum</p>
         <input type="date" name="geboortedatum" value="<?php echo $geboortedatum ?> ">
 
@@ -74,5 +75,5 @@ $select_klant = mysqli_query($connect, "SELECT * FROM klant WHERE idklant = $idk
 
 
 <?php
-include "../demo/footer.php";
+include_once "../demo/footer.php";
 ?>

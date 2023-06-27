@@ -64,7 +64,6 @@ a.add {
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-attachment: fixed;
-
 }
 
 body
@@ -209,8 +208,6 @@ input[type=textc] {
   border-radius: 6px;
 }
 
-
-
 .upload {
   width: 50%;
 }
@@ -223,6 +220,8 @@ align-items: center;
 form.contact-form {
   text-align: center;
   text-decoration: flex;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding-bottom: 15px;
 }
 
 label {
@@ -231,4 +230,13 @@ label {
 
 img {
   margin-bottom: 5px;
+}
+
+form.acc {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding-bottom: 15px;
+}
+
+form.shop {
+  grid: flex;
 }

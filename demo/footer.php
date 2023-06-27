@@ -1,15 +1,8 @@
 <!-- <footer>
-    <div class="footer_content">
-        <h3>Flower Power extra's</h3>
-        <p> Etiam vitae feugiat felis, vitae porta mi. Integer nisl ex, feugiat sit amet ligula ut, consectetur dapibus
-            tortor. Duis gravida dui non magna tincidunt mollis.
-        </p>
+<br>
+<style>
+ *{  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);}
 
-    </div>
-    <div class="footer_bottom">
-        <p>copyright &copy; Flower Power gemaakt door <span>Honman<span> Deong</p>
-    </div>
-</footer>
-</div>
+</style>
 </body>
 </html> -->

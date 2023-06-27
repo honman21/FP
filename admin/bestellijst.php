@@ -1,10 +1,10 @@
-<!-- <?php
+ <?php
 include '../admin/header.php';
 include_once '../includes/function.inc.php';
 
-if(isset($_POST['bestel'])){
+if(isset($_POST['editbestelling'])){
     $_SESSION['factuurid'] = $_POST['factuurid'];
-    header("location: bestelling.php");
+    header("location: editbestelling.php");
 }
 
 if(isset($_POST['medewerkeradd'])){
@@ -36,7 +36,6 @@ if(isset($_POST['medewerkeradd'])){
 }
 
 ?>
-<link rel="stylesheet" href="adminstyle/bestelling.css">
 <body>
 <header>
     <h1>Bestelling lijst</h1>
@@ -69,7 +68,7 @@ if(isset($_POST['medewerkeradd'])){
 
             echo "
                 <tr>
-                <form method='post'>
+                <form method='POST'>
                     <td>
                     " . $result['factuurid'] . "
                     <input hidden value='" . $result['factuurid'] . "' name='factuurid'>
@@ -80,7 +79,6 @@ if(isset($_POST['medewerkeradd'])){
                     
                     <td>
                     <input type='text' name='name' value='".$result['voornaam']."'>
-                    
                     </td>
                     <td>
                     ".$check."
@@ -89,7 +87,7 @@ if(isset($_POST['medewerkeradd'])){
                     <input type='submit' value='update medewerker' name='medewerkeradd'>
                     </td>
                     <td>
-                    <input type='submit' value='Meer' name='bestel'>
+                    <input type='submit' value='Meer' name='editbestelling'>
                     </td>
                     </form>
 
@@ -101,6 +99,7 @@ if(isset($_POST['medewerkeradd'])){
     }
     ?>
 </table>
+
 </div>
-<a href="index.php">Terug</a>
-</body> -->
+<a href="bestellijst.php">Terug</a>
+</body>

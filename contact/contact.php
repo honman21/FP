@@ -43,7 +43,7 @@ input {
                     <br>
                     <input type="text" name="mail" placeholder="Uw e-mail adres">
                     <br>
-                    <input type="text" name="onderwerp" placeholder="onderwerp">
+                    <input type="text" name="onderwerp" placeholder="Onderwerp">
                     <br>
                     <textarea name="message" placeholder="Bericht"></textarea>
                     <br><br>
