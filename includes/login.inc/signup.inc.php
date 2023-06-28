@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
     }
 
   if (invalidemail($email)!== false) {
-    header ("location: ../../../demo/signupacc?error=invalidemail");
+    header ("location: ../../../demo/signupacc.php?error=invalidemail");
     exit();
     }
 
@@ -30,7 +30,7 @@ if (isset($_POST["submit"])) {
   //   }
 
   if (pwdmatch($pwd, $rppwd)!== false) {
-    header ("location: ../../../demo/signupaccphp?error=pwdnotmatch");
+    header ("location: ../../../demo/signupacc.php?error=pwdnotmatch");
     exit();
     }
 
@@ -38,6 +38,6 @@ if (isset($_POST["submit"])) {
   createKlant($connect, $email, $pwd);
 }
 else {
-    header ("location: ../../demo/index.php");
+    header ("location: ../../../index.php");
     exit();
      }

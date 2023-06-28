@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-include_once '../demo/config.php';
+include_once 'config.php';
 
 if (isset($_SESSION["klant"])) {
   $idklant = $_SESSION["idklant"];
@@ -26,7 +26,7 @@ if (isset($_SESSION["klant"])) {
     
       <div class="bar">
         <!-- <img   src="../image/logotran.png" class="logo"> -->
-        <li><a href="../demo/index.php">Home</a></li>
+        <li><a href="../index.php">Home</a></li>
         <li><a href="../contact/contact.php">Contact</a></li>
         <li><a href="../cart/index.php">Shop</a></li>
 

@@ -125,7 +125,7 @@ function loginklant($connect, $email, $pwd) {
       $_SESSION["idklant"] = $klantExists["idklant"];
       $_SESSION["klant"] = $klantExists["email"];
       
-      header ("location: ../../demo/index.php");
+      header ("location: ../../index.php");
       exit();
     }
   }
@@ -133,23 +133,6 @@ function loginklant($connect, $email, $pwd) {
 
   //medewerker
 
-function createMedewerker($connect, $email, $pwd) {
-  $sql = "INSERT INTO medewerker (email, wachtwoord) VALUES (?,?);";
-  $stmt = mysqli_stmt_init($connect);
-
-  if (!mysqli_stmt_prepare( $stmt, $sql)) {
-    header ("location: ../../medewerker/signup.php?error=stmtfailed");
-    exit();
-  }
-  
-  $hashedpwd = password_hash($pwd, PASSWORD_DEFAULT);
-
-  mysqli_stmt_bind_param($stmt, "ss", $email, $hashedpwd);
-  mysqli_stmt_execute($stmt);
-  mysqli_stmt_close($stmt);
-  header ("location: ../../medewerker/signup.php?error=none");
-  exit();
-}
 
 function MedewerkerExists($connect, $email) {
     $sql = "SELECT * FROM medewerker WHERE email = ?;";
@@ -173,7 +156,7 @@ function MedewerkerExists($connect, $email) {
       $result = false;
       return $result;
     }
-    header ("location: ../../medewerker/signup.php?error=none");
+    header ("location: ../../admin/medewerkertoe.php?error=none");
     exit();
   
     mysqli_stmt_close($stmt);
@@ -183,7 +166,7 @@ function loginMedewerker($connect, $email, $pwd) {
     $MedewerkerExists = MedewerkerExists($connect, $email);
 
     if ($MedewerkerExists === false) {
-          header ("location: ../../medewerker/signup.php?error=wronglogin");
+          header ("location: ../../admin/medewerkertoe.php?error=wronglogin");
           exit();
     }
 
@@ -191,7 +174,7 @@ function loginMedewerker($connect, $email, $pwd) {
     $checkpwd = password_verify($pwd, $pwdhashed);
 
     if ($checkpwd === false) {
-      header ("location: ../../medewerker/signup.php?error=wronglogin");
+      header ("location: ../../admin/medewerkertoe.php?error=wronglogin");
       exit();
     }
 
@@ -316,19 +299,21 @@ return $result;
 
 //MEDEWERKERS TOEVOEGEN/VERWIJDEREN
 
-function voegmedewerker($connect, $email, $voornaam, $tussenvoegsel, $achternaam) {
-  $sql = "INSERT INTO medewerker (email, voornaam, tussenvoegsel, achternaam) VALUES (?,?,?,?);";
+function voegmedewerker($connect, $email, $voornaam, $tussenvoegsel, $achternaam, $pwd) {
+  $sql = "INSERT INTO medewerker (email, voornaam, tussenvoegsel, achternaam, wachtwoord) VALUES (?,?,?,?,?);";
   $stmt = mysqli_stmt_init($connect);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header ("location: ../admin/medewerker.php?error=stmtfailed");
+    header ("location: ../medewerkertoe.php?error=stmtfailed");
     exit();
   }
 
-  mysqli_stmt_bind_param($stmt, "ssss", $email, $voornaam, $tussenvoegsel, $achternaam);
+  $hashedpwd = password_hash($pwd, PASSWORD_DEFAULT);
+
+  mysqli_stmt_bind_param($stmt, "sssss", $email, $voornaam, $tussenvoegsel, $achternaam, $hashedpwd);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
-  header ("location: ../admin/medewerker.php?error=none");
+  header ("location: ../medewerkertoe.php?error=none");
   exit();
 }
 
@@ -337,10 +322,10 @@ function MedewerkerExistsM($connect, $email) {
     $stmt = mysqli_stmt_init($connect);
   
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-      header ("location: ../../medewerker/signup.php?error=stmtfailed");
+      header ("location: ../medewerkertoe.php?error=stmtfailed");
       exit();
     }
-  
+
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
   
@@ -354,15 +339,15 @@ function MedewerkerExistsM($connect, $email) {
       $result = false;
       return $result;
     }
-    header ("location: ../admin/medewerker.php?error=none");
+    header ("location: ../medewerkertoe.php?error=none");
     exit();
   
     mysqli_stmt_close($stmt);
   }
 
-  function emptyInputSignupM($email, $voornaam, $achternaam) {
+  function emptyInputSignupM($email, $voornaam, $achternaam, $pwd, $rppwd) {
     $result;
-  if (empty($email) || empty($voornaam) || empty($achternaam)) {
+  if (empty($email) || empty($voornaam) || empty($achternaam) || empty($pwd) || empty($rppwd)) {
     $result = true;
   }
   else {
@@ -380,4 +365,16 @@ function MedewerkerExistsM($connect, $email) {
     $result = false;
   }
   return $result;
+  }
+
+  function pwdmatchM($pwd, $rppwd) {
+    $result;
+    if ($pwd !== $rppwd) {
+      $result = true;
+    }
+    
+    else {
+     $result = false;
+    }
+    return $result;
   }

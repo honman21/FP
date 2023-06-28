@@ -17,9 +17,10 @@ if(isset($_POST['update_profile'])){
     $postcode = $_POST['postcode'];
     $telefoon = $_POST['telefoonnummer'];
     $geboortedatum = $_POST['geboortedatum'];
+    $email = $_POST['email'];
 
     $sql = "UPDATE klant SET voornaam = '$naam', tussenvoegsel = '$tussen', achternaam = '$achternaam', adres = '$adres', huisnummer = '$huisnummer', plaats = '$plaats', postcode = '$postcode',
-        telefoon = '$telefoon', geboortedatum = '$geboortedatum' WHERE idklant = $idklant";
+        telefoon = '$telefoon', geboortedatum = '$geboortedatum', email = '$email' WHERE idklant = $idklant";
 
     if ($connect->query($sql) === TRUE) {
         echo "<h3>Profiel updated</h3>";
@@ -41,13 +42,14 @@ $select_klant = mysqli_query($connect, "SELECT * FROM klant WHERE idklant = $idk
         $postcode = $row['postcode'];
         $telefoon = $row['telefoon'];
         $geboortedatum = $row['geboortedatum'];
+        $email = $row['email'];
     }
 
 
 ?>
 
 <div class="wrapper">
-    <form method="post">
+    <form method="POST">
         <br>
         <p>Voornaam</p>
         <input type="text" name="voornaam" value="<?php echo $name ?> ">
@@ -65,11 +67,13 @@ $select_klant = mysqli_query($connect, "SELECT * FROM klant WHERE idklant = $idk
         <input type="text" name="postcode"  value="<?php echo $postcode ?> ">
         <p>Telefoonnummer</p>
         <input type="tel" name="telefoonnummer"  value="<?php echo $telefoon ?> ">
-        
         <p>Geboortedatum</p>
         <input type="date" name="geboortedatum" value="<?php echo $geboortedatum ?> ">
-
-        <input type="submit" class="product-button"  value="Update profile" name="update_profile">
+        <p>Email</p>
+        <input type="text" name="email" value="<?php echo $email ?> ">
+        <br>
+        <button class="acc" type="submit" name="update_profile">Update Profile</button>
+        
     </form>
 </div>
 

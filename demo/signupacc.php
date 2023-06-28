@@ -26,7 +26,7 @@ include_once 'header.php';
             echo "<p>Email klopt niet</p>";
           }
           else if ($_GET["error"] == "pwdnotmatch") {
-            echo "<p>Wachtwoord </p>";
+            echo "<p>Wachtwoord matched niet</p>";
           }
           else if ($_GET["error"] == "Account_bestaat_al") {
             echo "<p>Account bestaat al</p>";

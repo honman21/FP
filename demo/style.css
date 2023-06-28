@@ -209,7 +209,7 @@ input[type=textc] {
 }
 
 .upload {
-  width: 50%;
+  width: 100%;
 }
 
 #uploadCon form {
@@ -239,4 +239,9 @@ form.acc {
 
 form.shop {
   grid: flex;
+}
+
+button.acc {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
 }

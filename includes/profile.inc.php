@@ -22,7 +22,7 @@ if(isset($_POST['update'])){
      header('location:../cart/index.php');
   }else{
      $message[] = 'Profiel could not be updated';
-     header('location:../demo/index.php');
+     header('location:../index.php');
   }
 
 }
@@ -47,11 +47,4 @@ require_once 'function.inc.php';
 
 else {
   header("location: ../demo/login.php");
-}
-
-
-function updateklant($connect, $voornaam, $tussenvoegsel, $achternaam, $email) {
-  $klantExists = klantExists($connect, $email);
-
-  if($klantExists === true)
 }

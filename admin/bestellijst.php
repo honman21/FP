@@ -11,10 +11,6 @@ if(isset($_POST['medewerkeradd'])){
     $medewerker = $_POST['name'];
     $factuurid = $_POST['factuurid'];
 
-    //$afgehaald = isset($_POST['afgehaald']) ? $_POST['afgehaald'] : 0;
-    //$insert_afgehaald = mysqli_query($link, "UPDATE factuur SET afgehaald ='$afgehaald' WHERE factuurid = '$factuurid'");
-
-
     $select_medewerker = "SELECT voornaam FROM medewerker WHERE voornaam = '$medewerker'";
     $resulten = mysqli_query($connect, $select_medewerker);
     if($resulten->num_rows == 0){
@@ -23,8 +19,8 @@ if(isset($_POST['medewerkeradd'])){
         $select_id = mysqli_query($connect, "SELECT idmedewerker FROM medewerker WHERE voornaam = '$medewerker'");
 
         if(mysqli_num_rows($select_id) > 0){
-            $assoc = mysqli_fetch_assoc($select_id);
-            $id = $assoc['idmedewerker'];
+            $assoc_id = mysqli_fetch_assoc($select_id);
+            $id = $assoc_id['idmedewerker'];
 
             $add_medewerker = mysqli_query($connect, "UPDATE factuur SET idmedewerker = '$id' WHERE factuurid = '$factuurid'");
 
@@ -38,18 +34,18 @@ if(isset($_POST['medewerkeradd'])){
 ?>
 <body>
 <header>
-    <h1>Bestelling lijst</h1>
+    <h1>Bestel Lijst</h1>
 </header>
 <div class="container">
-<table cellpadding="0" class="bestelling">
+<table class="bestelling">
 
-    <tr class="text-aline">
-        <th>id</th>
-        <th>datum</th>
-        <th>medewerker</th>
-        <th>afgehaald</th>
-        <th>update</th>
-        <th>meer info</th>
+    <tr>
+        <th>ID</th>
+        <th>Datum</th>
+        <th>Medewerker</th>
+        <th>Afgehaald</th>
+        <th>Update</th>
+        <th>Meer</th>
     </tr>
     <?php
 
@@ -101,5 +97,5 @@ if(isset($_POST['medewerkeradd'])){
 </table>
 
 </div>
-<a href="bestellijst.php">Terug</a>
+<a href="bestelpage.php">Terug</a>
 </body>

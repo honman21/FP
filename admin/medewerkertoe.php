@@ -15,6 +15,10 @@ include_once '../admin/header.php';
           <br>
           <input class="textbox" type="text" name="achternaam" placeholder="Achternaam">
           <br>
+          <input type="password" name="pwd" placeholder="Wachtwoord" >
+          <br>
+          <input type="password" name="rppwd" placeholder="Herhaal wachtwoord" >
+          <br>
           <button type="submit" name="submit">Toevoegen</button>
         </form>
 
@@ -25,6 +29,9 @@ include_once '../admin/header.php';
           }
           else if ($_GET["error"] == "invalidemail") {
             echo "<p>Email klopt niet</p>";
+          }
+          else if ($_GET["error"] == "pwdnotmatch") {
+            echo "<p>Wachtwoord matched niet</p>";
           }
           else if ($_GET["error"] == "Account_bestaat_al") {
             echo "<p>Account bestaat al!</p>";

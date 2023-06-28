@@ -24,7 +24,7 @@ if(isset($_POST['update_status'])){
         <h3><?php echo $assoc_klant['voornaam'].$assoc_klant['tussenvoegsel'].$assoc_klant['achternaam']?></h3>
     </div>
     <h2>Bestelling: <?php
-        $select_afgehaald = mysqli_query($link, "SELECT afgehaald FROM factuur WHERE factuurid = '$factuurid'");
+        $select_afgehaald = mysqli_query($connect, "SELECT afgehaald FROM factuur WHERE factuurid = '$factuurid'");
         $fetch_bool = mysqli_fetch_assoc($select_afgehaald);
         if($fetch_bool['afgehaald'] == 0){
 
@@ -79,7 +79,7 @@ if(isset($_POST['update_status'])){
                 </tr>
                 
                 ";
-            $grand_total += $sub_total;
+            $intotaal += $sub_total;
         }
 
     }
@@ -89,7 +89,7 @@ if(isset($_POST['update_status'])){
 
         <td colspan="4"></td>
         <td>Grand total:</td>
-        <td>€<?php echo $grand_total; ?>/-</td>
+        <td>€<?php echo $intotaal; ?>/-</td>
     </tr>
 </table>
 

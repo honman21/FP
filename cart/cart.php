@@ -65,7 +65,7 @@ $intotaal = 0;
                     <form action="../includes/cart.inc/update.php" method="POST">
                       <input type="number" value="<?=$cart['qty'];?>" name="qty" min="1">
                       <input type="hidden" name="upid" value="<?= $cart['pro_id'];?>">
-                      <input type="submit" name="update" value="Update" class="update">
+                      <input type="submit" name="update" value="toevoegen" class="update">
                     </form>
                   </td>
 

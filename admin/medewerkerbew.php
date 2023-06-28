@@ -2,8 +2,8 @@
 include_once '../admin/header.php';
 include_once '../demo/config.php';
 
-if (isset($_GET['id'])) {
-  $medeid = $_GET['id'];
+if (isset($_GET['medeid'])) {
+  $medeid = $_GET['medeid'];
   $delete = mysqli_query($connect,"DELETE FROM `medewerker` WHERE `idmedewerker`='$medeid'");
 }
 $sql = "select * from medewerker";

@@ -8,28 +8,35 @@ if (isset($_POST["submit"])) {
   $voornaam = $_POST["voornaam"];
   $tussenvoegsel = $_POST["tussenvoegsel"];
   $achternaam = $_POST["achternaam"];
+  $pwd = $_POST["pwd"];
+  $rppwd = $_POST["rppwd"];
 
 
   if (MedewerkerExistsM($connect, $email)!== false) {
-    header ("location: ../medewerker.php?error=Account_bestaat_al");
+    header ("location: ../medewerkertoe.php?error=Account_bestaat_al");
     exit();
     }
 
-  if (emptyInputSignupM($email, $voornaam, $achternaam)!== false) {
-    header ("location: ../medewerker.php?error=emptyinput");
+  if (emptyInputSignupM($email, $voornaam, $achternaam, $pwd, $rppwd)!== false) {
+    header ("location: ../medewerkertoe.php?error=emptyinput");
     exit();
     }
 
   if (invalidemailM($email)!== false) {
-    header ("location: ../medewerker.php?error=invalidemail");
+    header ("location: ../medewerkertoe.php?error=invalidemail");
+    exit();
+    }
+
+  if (pwdmatchM($pwd, $rppwd)!== false) {
+    header ("location: ../medewerkertoe.php?error=pwdnotmatch");
     exit();
     }
 
 
-  voegmedewerker($connect, $email, $voornaam, $tussenvoegsel, $achternaam);
-  header ("location: ../medewerker.php?error=none");
+  voegmedewerker($connect, $email, $voornaam, $tussenvoegsel, $achternaam, $pwd);
+  header ("location: ../medewerkertoe.php?error=none");
 }
 else {
-    header ("location: ../../admin/medewerker.php");
+    header ("location: ../medewerkertoe.php");
     exit();
      }
