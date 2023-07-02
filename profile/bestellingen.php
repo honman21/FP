@@ -56,6 +56,3 @@ if(isset($_POST['factuur'])){
 <a type="submit" href="menu.php">Terug</a>
 </div>
 
-<?php
-include "../demo/footer.php";
-?>

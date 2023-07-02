@@ -9,7 +9,7 @@ $assoc_klant = mysqli_fetch_assoc($select_klant);
 
 if(isset($_POST['update_status'])){
     $afgehaald = isset($_POST['afgehaald']) ? $_POST['afgehaald'] : 0;
-    $insert_afgehaald = mysqli_query($link, "UPDATE factuur SET afgehaald ='$afgehaald' WHERE factuurid = '$factuurid'");
+    $insert_afgehaald = mysqli_query($connect, "UPDATE factuur SET afgehaald ='$afgehaald' WHERE factuurid = '$factuurid'");
 
 }
 ?>

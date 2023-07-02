@@ -99,7 +99,7 @@ function createKlant($connect, $email, $pwd) {
   mysqli_stmt_bind_param($stmt, "ss", $email, $hashedpwd);
   mysqli_stmt_execute($stmt);
   mysqli_stmt_close($stmt);
-  header ("location: ../demo/signupacc.php?error=none");
+  header ("location: ../../demo/signupacc.php?error=none");
   exit();
 }
 
@@ -166,7 +166,7 @@ function loginMedewerker($connect, $email, $pwd) {
     $MedewerkerExists = MedewerkerExists($connect, $email);
 
     if ($MedewerkerExists === false) {
-          header ("location: ../../admin/medewerkertoe.php?error=wronglogin");
+          header ("location: ../../admin/index.php?error=wronglogin");
           exit();
     }
 
@@ -174,7 +174,7 @@ function loginMedewerker($connect, $email, $pwd) {
     $checkpwd = password_verify($pwd, $pwdhashed);
 
     if ($checkpwd === false) {
-      header ("location: ../../admin/medewerkertoe.php?error=wronglogin");
+      header ("location: ../../admin/index.php?error=wronglogin");
       exit();
     }
 
@@ -184,7 +184,7 @@ function loginMedewerker($connect, $email, $pwd) {
       $_SESSION["medewerker"] = $MedewerkerExists["email"];
 
       
-      header ("location: ../../admin/index.php");
+      header ("location: ../../admin/adminpage.php");
       exit();
     }
   }
@@ -213,16 +213,16 @@ function loginMedewerker($connect, $email, $pwd) {
   return $result;
 }
 
-// function imagefile($imagetype) {
-//   $result;
-// if ($imagetype == 'jpg' || $imagetype == 'png' || $imagetype == 'jpeg' ||$imagetype == 'gif') {
-//   $result = true;
-// }
-// else {
-//   $result = false;
-// }
-// return $result;
-// }
+function imagefile($imagetype) {
+  $result;
+if ($imagetype == 'jpg' || $imagetype == 'png' || $imagetype == 'jpeg' ||$imagetype == 'gif') {
+  $result = true;
+}
+else {
+  $result = false;
+}
+return $result;
+}
 
 
 

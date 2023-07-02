@@ -44,7 +44,3 @@ include_once '../admin/header.php';
 
       </section>
 
-
-<?php
-include_once '../demo/footer.php';
-?>

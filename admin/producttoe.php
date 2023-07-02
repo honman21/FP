@@ -14,7 +14,7 @@
 <body>
 <br>
   <section >
-    <form action="../includes/upload.inc.php" method="POST" enctype="multipart/form-data">
+    <form action="../includes/upload.inc.php" method="POST">
       <input class="textbox" type="text" name="naam" id="naam" placeholder="Product naam" >
       <br>
       <input class="textbox" type="text" name="prijs" id="prijs" placeholder="Product prijs" >

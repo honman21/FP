@@ -11,14 +11,14 @@ require_once '../function.inc.php';
 
 
   if (emptyInputLogin($email, $pwd) !== false) {
-    header ("location: ../../medewerker/login.php?error=emptyinput");
+    header ("location: ../../admin/index.php?error=emptyinput");
     exit();
     }
 
 loginMedewerker($connect, $email, $pwd);
-
+header ("location: ../../admin/adminpage.php");
 }
 
 else {
-  header("location: ../../medewerker/login.php");
+  header("location: ../../admin/index.php");
 }

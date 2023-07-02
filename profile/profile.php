@@ -2,9 +2,6 @@
 include "../demo/config.php";
 include "../demo//header.php";
 
-if(!isset($_SESSION['klant'])) {
-    header ("location: ../demo/signupacc.php");
-  }
 
 if(isset($_POST['update_profile'])){
 
@@ -77,7 +74,3 @@ $select_klant = mysqli_query($connect, "SELECT * FROM klant WHERE idklant = $idk
     </form>
 </div>
 
-
-<?php
-include_once "../demo/footer.php";
-?>

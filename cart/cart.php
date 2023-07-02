@@ -118,7 +118,3 @@ $intotaal = 0;
       </tbody>
   </table>
 </div>
-
-<?php
- include 'footer.php'; 
-?>

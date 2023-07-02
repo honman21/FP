@@ -32,14 +32,10 @@ include_once 'header.php';
             echo "<p>Account bestaat al</p>";
           }
           else if ($_GET["error"] == "none") {
-            echo "<p>U bent ingelogd!</p>";
+            echo "<p>Uw account is aangemaakt</p>";
           }
         }
       ?>
 
       </section>
 
-
-<?php
-include_once 'footer.php';
-?>

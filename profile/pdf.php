@@ -1,92 +1,101 @@
 <?php
-require_once '../demo/header.php';
+session_start();
+require_once '../demo/config.php';
 require_once '../vendor/autoload.php';
 
 use Dompdf\Dompdf;
+
 $factuurid = $_SESSION['factuurid'];
 
 $select_klant = mysqli_query($connect, "SELECT * FROM klant INNER JOIN factuur ON klant.idklant = factuur.idklant WHERE factuurid = '$factuurid'");
 $assoc_klant = mysqli_fetch_assoc($select_klant);
 $select_factuur = mysqli_query($connect, "SELECT * FROM factuur WHERE factuurid = '$factuurid'");
-$assoc_factuur = mysqli_fetch_assoc($assoc_factuur);
+$assoc_factuur = mysqli_fetch_assoc($select_factuur);
 $intotaal = 0;
 
-$html = '<html>
-<link rel="stylesheet" href="factuur.css">
+$body = '<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, klant-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>factuur</title>
 </head>
 
     
 
 <body>
-    <img src="../image/holdinflower2.jpg" width="100" height="100" >
-        <h3> '.$assoc_klant["voornaam"].$assoc_klant["tussenvoegsel"].$assoc_klant["achternaam"].'</h3>
-        <h3> '.$assoc_factuur["datum"].'</h3>
+    <img src="../image/flowermain.jpg"  height="100" >
+        <h3>'.$assoc_klant["voornaam"].$assoc_klant["tussenvoegsel"].$assoc_klant["achternaam"].'</h3>
+        <h3> Bestelling geplaatst op: '.$assoc_factuur["datum"].'</h3>
     <div>
-    <h2>factuur</h2>
+    <h2>Factuur van uw bestelling</h2>
     <h3>#'.$assoc_factuur["factuurid"].'</h3>
     </div>
     <table>
         <thead>
         <tr>
-            <th>id</th>
-            <th>product naam</th>
-            <th>prijs</th>
-            <th>aantal</th>
-            <th>totaal</th>
+            <th>ID</th>
+            <br>
+            <th>Product naam</th>
+            <br>
+            <th>Prijs per stuk</th>
+            <br>
+            <th>Aantal</th>
+            <br>
+            <th>Totaal</th>
+            <br>
         </tr>
         </thead>
         <tbody>';
         
-$select_product = "SELECT * from artikel_has_factuur INNER JOIN artikel ON artikel_has_factuur.artikel_idartikel = artikel.idartikel WHERE factuur_factuurid = '$factuurid'";
+$select_artikel = "SELECT * from artikel_has_factuur INNER JOIN artikel ON artikel_has_factuur.artikel_idartikel = artikel.idartikel WHERE factuur_factuurid = '$factuurid'";
 
-$query = mysqli_query($connect, $select_product);
+$query = mysqli_query($connect, $select_artikel);
 $num = mysqli_num_rows($query);
 if ($num > 0) {
     while ($result = mysqli_fetch_assoc($query)) {
 
-                $html .= '<tr>
+                $body .= '<tr>
                     <td>
                     ' . $result['idartikel'] . '
                     </td>
+                    <br>
                     <td>
                     '.$result['naam'].'
                     </td>
+                    <br>
                     <td>
                     &euro;'.$result['prijs'].'
                     </td>
+                    <br>
                     <td>
                     '.$result['qty'].'
                     </td>
+                    <br>
                     <td>
                     &euro;'.$subtt = $result['prijs'] * $result['qty'].'
                     </td>
                 </tr>';
-
+                $intotaal += $subtt;
     }
 
 }
-$intotaal += $subtt;
 
 
 
-$html = '</tbody>
+
+$body .= '</tbody>
         <tr>
-            <th colspan="4" class="my-table">Totaal bedrag</th>
-            <th>€'.$intotaal.' </th>
+            <th colspan="7">Totaal bedrag</th>
+            <th colspan="7">&euro;'.$intotaal.'</th>
         </tr>
     </table>
 </body>
 </html>';
 
+
+
 $dompdf = new Dompdf;
-$dompdf->loadHtml($html);
+$dompdf->loadHtml($body);
 $dompdf->setPaper('A4','portrait');
+ob_end_clean();
 $dompdf->render();
-$dompdf->stream('factuur.pdf');
+$dompdf->stream('factuur#'.$assoc_factuur["factuurid"].'.pdf', array('Attachment' => 0));
 ?>

@@ -1,8 +1,8 @@
  <?php
-include '../admin/header.php';
-include_once '../includes/function.inc.php';
+require_once '../admin/header.php';
+require_once '../includes/function.inc.php';
 
-if(isset($_POST['editbestelling'])){
+if(isset($_POST['pro_id'])){
     $_SESSION['factuurid'] = $_POST['factuurid'];
     header("location: editbestelling.php");
 }
@@ -25,8 +25,9 @@ if(isset($_POST['medewerkeradd'])){
             $add_medewerker = mysqli_query($connect, "UPDATE factuur SET idmedewerker = '$id' WHERE factuurid = '$factuurid'");
 
 
-        }
+        } 
         echo "werknemer aangepast";
+        
     }
 
 }
@@ -34,7 +35,8 @@ if(isset($_POST['medewerkeradd'])){
 ?>
 <body>
 <header>
-    <h1>Bestel Lijst</h1>
+    <br>
+    <h1>Bestellijst</h1>
 </header>
 <div class="container">
 <table class="bestelling">
@@ -58,6 +60,7 @@ if(isset($_POST['medewerkeradd'])){
                 $check = "ja";
             } else {
                 $check = "nee";
+                
             }
 
 
@@ -83,7 +86,7 @@ if(isset($_POST['medewerkeradd'])){
                     <input type='submit' value='update medewerker' name='medewerkeradd'>
                     </td>
                     <td>
-                    <input type='submit' value='Meer' name='editbestelling'>
+                    <input type='submit' value='Meer' name='pro_id'>
                     </td>
                     </form>
 

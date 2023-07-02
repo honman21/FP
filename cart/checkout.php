@@ -13,6 +13,7 @@ if(isset($_SESSION["klant"])){
         $rowsql = mysqli_query($connect, "SELECT MAX(factuurid) AS max FROM factuur") ;
         $row = mysqli_fetch_array($rowsql);
         $factuurid = $row['max'];
+        
 
 
     } else {

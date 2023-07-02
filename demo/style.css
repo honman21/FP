@@ -53,18 +53,30 @@ a.add {
   font-size: 100%;
   font-family: sans-serif;
   text-align: center;
+  box-sizing: border-box;
  }
-
+ 
 
 .banner {
   width: 100%;
-  height: 100vh;
-  background-image: url(../image/holdinflower2.jpg);
-  background-position: center;
+  height: 95vh;
+  background-image: linear-gradient(180deg, rgba(218, 208, 216,0.1),rgba(218, 208, 216, 0.1)), url(../image/flowermain.jpg);
+  display: flex;
+	flex-direction: column;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-attachment: fixed;
+  background-size: auto;
+  align-items: center;
+	justify-content: center;
+	text-align: center;
+  background-color: #E1E1E3;
+  overflow: hidden;
 }
+
+.slogan {
+  margin-left: 110px;
+}
+
 
 body
 { 
@@ -74,12 +86,12 @@ body
 
 .bar
 {
-  
   align-items: center;
   width: 100%;
-  height: 60;
+  height: 60px;
   text-align: center;
-  background-color: black;
+  background-color: white;
+;
 
 
 }
@@ -93,13 +105,15 @@ body
   padding: 20px;
   cursor: pointer;
   text-align: center;
-  background-color: rgba(139, 88, 88, 0);
+  /* background-color: rgba(139, 88, 88, 0); */
+  background-color: transparent;
   position: relative;
 }
 
 .bar li a{
+  font-weight: bold;
   text-decoration: none;
-  color: #ffffff;
+  color:#4b4c4d;;
 }
 
 .bar li:hover {
@@ -110,7 +124,7 @@ body
   content: '';
   height: 2px;
   width: 0;
-  background: rgb(255, 255, 255);
+  background: rgb(119, 119, 119);
   position: absolute;
   left: 0;
   bottom: 3px;
@@ -130,6 +144,10 @@ body
 
 .logo {
   position: absolute;
+}
+
+map.iframe {
+  width: 80%;
 }
 
 
@@ -160,7 +178,7 @@ a[type="submit"] {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 10%;
+  width: auto;
   text-decoration: none;
 }
 
@@ -228,8 +246,12 @@ label {
   text-align: center;
 }
 
-img {
+img.shop {
   margin-bottom: 5px;
+}
+
+img.shop:hover {
+opacity: 0.5;
 }
 
 form.acc {
@@ -237,11 +259,61 @@ form.acc {
   padding-bottom: 15px;
 }
 
-form.shop {
+.shop {
   grid: flex;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
 }
 
 button.acc {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
+}
+
+a.add {
+  margin-bottom: 15px;
+}
+
+
+.footer-basic {
+  color:#4b4c4d;
+  background-color: #dfd2d8;
+  
+}
+
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.footer-basic li {
+  padding:0 10px;
+}
+
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity:1;
+}
+
+
+
+.footer-basic .social > a:hover {
+  opacity:0.8;
+}
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
 }

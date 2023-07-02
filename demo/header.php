@@ -30,10 +30,10 @@ if (isset($_SESSION["klant"])) {
         <li><a href="../contact/contact.php">Contact</a></li>
         <li><a href="../cart/index.php">Shop</a></li>
 
-
         </script>
         <?php
-          if (isset($_SESSION["klant"]) || isset($_SESSION["medewerker"])) {
+          if (isset($_SESSION["klant"])) {
+            echo "<li><a href='../profile/menu.php'>Profiel</a></li>";
             echo "<li><a href='../includes/login.inc/logout.inc.php'>Logout</a></li>";
           }
 
@@ -42,19 +42,8 @@ if (isset($_SESSION["klant"])) {
             echo "<li><a href='../demo/login.php'>Login</a></li>";
               }     
         ?>
-        <?php
-         if (isset($_SESSION["medewerker"])) {
-          echo "<li><a href='../admin/index.php'>Producten</a></li>";
-        }  
 
-          if (isset($_SESSION["klant"])) {
-          echo "<li><a href='../profile/menu.php'>Profiel</a></li>";
-          echo "<li><a href='../cart/cart.php'>Cart</a></li>";
-        }
-        else {
-          echo "<li><a href='../cart/cart.php'>Cart</a></li>";
-        }
-        ?>
+          <li><a href='../cart/cart.php'>Cart</a></li>
         <?php
           if (isset($_SESSION['cart'])) : ?>
             <?php echo count($_SESSION['cart']);; ?>

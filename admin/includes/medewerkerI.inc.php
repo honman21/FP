@@ -7,18 +7,18 @@ if(isset($_POST["submit"])) {
   $pwd = $_POST["pwd"];
 
 require_once '../../demo/config.php';
-require_once '../function.inc.php';
+require_once '../../includes/function.inc.php';
 
 
   if (emptyInputLogin($email, $pwd) !== false) {
-    header ("location: ../admin/login.php?error=emptyinput");
+    header ("location: ../index.php?error=emptyinput");
     exit();
     }
 
 loginMedewerker($connect, $email, $pwd);
-
+header ("location: ../../admin/adminpage.php");
 }
 
 else {
-  header("location: ../admin/login.php");
+  header("location: ../../admin/index.php");
 }

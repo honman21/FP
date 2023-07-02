@@ -13,9 +13,8 @@ if(isset($_POST['update_item'])) {
   $artikel_naam = $_POST['naam'];
   $artikel_prijs = $_POST['prijs'];
   $artikel_omschrijving = $_POST['omschrijving'];
-  $artikel_opslag = $_POST['opslag'];
 
-  $sql = "UPDATE artikel SET  naam = '$artikel_naam', omschrijving = '$artikel_omschrijving', prijs = '$artikel_prijs', opslag = '$artikel_opslag' WHERE idartikel = $artikel_id";
+  $sql = "UPDATE artikel SET  naam = '$artikel_naam', omschrijving = '$artikel_omschrijving', prijs = '$artikel_prijs' WHERE idartikel = $artikel_id";
 
   if ($connect->query($sql) === TRUE) {
 
@@ -45,7 +44,6 @@ if(isset($_POST['update_item'])) {
         <th>Image</th>
         <th>Naam</th>
         <th>Prijs</th>
-        <th>Opslag</th>
         <th>Omschrijving</th>
         <th>Update</th>
         <th>Delete</th>
@@ -90,10 +88,6 @@ input {
 
       <td>
       <input type='textc' name='prijs' value='".$assoc_artikel['prijs']."'>
-      </td>
-
-      <td>
-      <input type='textc' name='opslag' value='".$assoc_artikel['opslag']."'>
       </td>
 
       <td>
